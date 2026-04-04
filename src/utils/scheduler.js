@@ -96,7 +96,7 @@ function generateTeamPairs(teams) {
     }
   }
   // Shuffle pairs for variety
-  return pairs.sort(() => Math.random() - 0.5)
+  return pairs.toSorted(() => Math.random() - 0.5)
 }
 
 /**
@@ -177,7 +177,7 @@ export function generateSchedule(teams, venues, timeSlots, options = {}) {
       // Score this slot (prefer weekends, later slots)
       let score = 0
       const slotDate = parseISO(slot.date)
-      if (isWeekend(slotDate)) score += 10 // Prefer weekends
+      if (isWeekend(slotDate)) {score += 10} // Prefer weekends
       score += parseInt(slot.startTime.split(':')[0]) // Later times slightly preferred
       
       if (score > bestScore) {
@@ -252,7 +252,7 @@ export function exportToICal(schedule, teams, venues) {
     ical += `DTSTART:${dateStr}T${startTime}\r\n`
     ical += `DTEND:${dateStr}T${endTime}\r\n`
     ical += `SUMMARY:${title}\r\n`
-    if (venue) ical += `LOCATION:${venue.name}\r\n`
+    if (venue) {ical += `LOCATION:${venue.name}\r\n`}
     ical += 'END:VEVENT\r\n'
   })
   

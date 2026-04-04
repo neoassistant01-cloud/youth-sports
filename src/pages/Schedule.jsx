@@ -116,7 +116,7 @@ export default function Schedule({ value }) {
             </div>
           ) : (
             [...data.schedule]
-              .sort((a, b) => new Date(a.date) - new Date(b.date))
+              .toSorted((a, b) => new Date(a.date) - new Date(b.date))
               .map(event => {
                 const homeTeam = data.teams.find(t => t.id === event.homeTeamId)
                 const awayTeam = data.teams.find(t => t.id === event.awayTeamId)

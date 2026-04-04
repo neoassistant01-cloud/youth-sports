@@ -267,7 +267,7 @@ function TeamModal({ team, sports, seasons, onClose, onSave }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!formData.name.trim()) return
+    if (!formData.name.trim()) {return}
     onSave(formData)
   }
 
@@ -329,7 +329,7 @@ function PersonModal({ title, item, fields, onClose, onSave }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!formData.name.trim()) return
+    if (!formData.name.trim()) {return}
     onSave(formData)
   }
 
